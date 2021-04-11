@@ -1,6 +1,6 @@
 package com.example.SpringBootSample.application.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
@@ -9,8 +9,8 @@ import java.util.Locale;
 import java.util.Map;
 
 @Service
+@AllArgsConstructor
 public class UserApplicationService {
-   @Autowired
    private MessageSource messageSource;
 
    public Map<String, Integer> getGenderMap(Locale locale) {
