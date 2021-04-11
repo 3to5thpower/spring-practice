@@ -1,6 +1,7 @@
 package com.example.SpringBootSample.controller;
 
 import com.example.SpringBootSample.application.service.UserApplicationService;
+import com.example.SpringBootSample.form.GroupOrder;
 import com.example.SpringBootSample.form.SignupForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +31,7 @@ public class SignupController {
     }
 
     @PostMapping("/signup")
-    public String postSignup(Model model, Locale locale, @ModelAttribute @Validated SignupForm form, BindingResult bindingResult) {
+    public String postSignup(Model model, Locale locale, @ModelAttribute @Validated(GroupOrder.class) SignupForm form, BindingResult bindingResult) {
         // validation
         if (bindingResult.hasErrors()) {
             return getSignup(model, locale, form);
